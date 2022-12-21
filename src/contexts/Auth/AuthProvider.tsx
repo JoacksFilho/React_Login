@@ -11,8 +11,8 @@ export const AuthProvider = ({ children }:{children: JSX.Element}) => {
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
             if(storageData){
-                const data = await api.validateToken('storageData');
-                if(data) {
+                const data = await api.validateToken(storageData);
+                if(data.user) {
                     setUser(data.user);
                 }
             }
@@ -20,8 +20,8 @@ export const AuthProvider = ({ children }:{children: JSX.Element}) => {
         validateToken();
     }, [api]);
 
-    const signin = async (Name: string, Token: string, Phone: string) =>{
-        const data = await api.signin(Name, Token, Phone);
+    const signin = async (name: string, token: string, phone: string) =>{
+        const data = await api.signin(name, token, phone);
         if (data.user && data.token) {
             setUser(data.user);
             setToken(data.token);
@@ -31,13 +31,18 @@ export const AuthProvider = ({ children }:{children: JSX.Element}) => {
     }
     
     const signout = async () => {
-        await api.logout();
         setUser(null);
         setToken('');
+        await api.logout();
+     
     }
 
     const setToken = (token: string) => {
         localStorage.setItem('authToken', token);
+    }
+
+    const clearToken = () => {
+        localStorage.removeItem('authToken');
     }
 
 

@@ -8,13 +8,13 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const[name, setName] = useState('');
-    const[password, setPassword] = useState('');
+    const[token, setToken] = useState('');
     const[phone, setPhone] = useState('');
 
 
     const handleLogin = async () =>{
-        if(name && password && phone){
-            const isLogged = await auth.signin(name, password, phone);
+        if(name && token && phone){
+            const isLogged = await auth.signin(name, token, phone);
             if(isLogged){
                 navigate('/');    
             }else{
@@ -34,9 +34,9 @@ export const Login = () => {
             placeholder="Nome"
             />
              <input 
-            type="password" 
-            value={password} 
-            onChange={e => setPassword(e.target.value)}
+            type="token" 
+            value={token} 
+            onChange={e => setToken(e.target.value)}
             placeholder="Senha"
             />
              <input 

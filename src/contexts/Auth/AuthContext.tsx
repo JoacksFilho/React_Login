@@ -3,7 +3,7 @@ import { User } from '../../types/User';
 
 export type AuthContextType = {
     user: User | null; // Se tem usuario logado ou não.
-    signin: (name: string, password: string, phone: string) => Promise<boolean> 
+    signin: (name: string, token: string, phone: string) => Promise<boolean> 
     signout: () => void;
 }
 

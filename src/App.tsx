@@ -10,11 +10,11 @@ import { AuthContext } from "./contexts/Auth/AuthContext";
 function App(){
 
   const auth = useContext(AuthContext);
-  const navigate = useNavigate();
+ 
 
   const handleLogout =async () => {
     await auth.signout();
-    navigate('/');
+    window.location.href = window.location.href;
   }
 
   return(

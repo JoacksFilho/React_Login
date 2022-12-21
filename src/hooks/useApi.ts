@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Token } from 'typescript';
 
 const api = axios.create({
     baseURL: 'http://localhost:5107'
@@ -14,14 +15,15 @@ export const useApi = () => ({
         return response.data;
         
     },
-    signin:async (Name:string, Token: string, Phone: string) => {
-        const response = await api.post('/teste', {Name, Token, Phone}); 
+    signin:async (name:string, token: string, phone: string) => {
+        const response = await api.post('/teste', {name, token, phone}); 
         // return{
         //     user: {name: 'Joacks', password: "123456", phone: '9999-9999'},
         //     token: '12'
         // };
         return response.data;   
     },
+
     logout:async () => {
         return {status: true};
         const response = await api.post('/logout');
