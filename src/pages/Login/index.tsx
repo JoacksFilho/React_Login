@@ -25,7 +25,7 @@ export const Login = () => {
 
     return(
         <div>
-            <h2>Página Fechada</h2>
+            <h2>Digite Seus Dados</h2>
 
             <input 
             type="text" 

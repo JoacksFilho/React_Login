@@ -20,10 +20,10 @@ function App(){
   return(
    <div className="App">
     <header>
-      <h1>Header do site</h1>
+      <h1>Tela de Login</h1>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/private">Página Privada</Link>
+        <Link to="/private">Login</Link>
         {auth.user && <button onClick={handleLogout}>Sair</button>}
       </nav>
     </header>
